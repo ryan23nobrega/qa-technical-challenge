@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/LoginPage');
 const InventoryPage = require('../pages/InventoryPage');
 
-const users = require('../fixtures/users.json');
+const users = require('../fixtures/userData');
 
 let inventoryPage;
 
