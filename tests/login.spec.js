@@ -36,3 +36,10 @@ test('Login com senha inválida', async ({ page }) => {
     page.locator('[data-test="error"]')
   ).toBeVisible();
 });
+
+test('Login sem preencher credenciais', async ({ page }) => {
+  await loginPage.login('', '');
+  await expect(
+    page.locator('[data-test="error"]')
+  ).toBeVisible();
+});
