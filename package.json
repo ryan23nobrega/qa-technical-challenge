@@ -1,0 +1,24 @@
+{
+  "name": "qa-technical-challenge",
+  "version": "1.0.0",
+  "description": "QA Technical Challenge covering UI and API testing using Playwright and Postman.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryan23nobrega/qa-technical-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ryan23nobrega/qa-technical-challenge/issues"
+  },
+  "homepage": "https://github.com/ryan23nobrega/qa-technical-challenge#readme",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.7.0"
+  }
+}

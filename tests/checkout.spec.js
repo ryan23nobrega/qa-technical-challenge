@@ -1,0 +1,46 @@
+const { test, expect } = require('@playwright/test');
+
+const LoginPage = require('../pages/LoginPage');
+
+const InventoryPage = require('../pages/InventoryPage');
+
+const CheckoutPage = require('../pages/CheckoutPage');
+
+const users = require('../fixtures/userData');
+
+test('Fluxo completo de compra', async ({ page }) => {
+
+  const loginPage = new LoginPage(page);
+
+  const inventoryPage = new InventoryPage(page);
+
+  const checkoutPage = new CheckoutPage(page);
+
+  await loginPage.accessWebsite();
+
+  await loginPage.login(
+    users.standardUser.username,
+    users.standardUser.password
+  );
+
+  await inventoryPage.addBackpackToCart();
+
+  await inventoryPage.accessCart();
+
+  await checkoutPage.startCheckout();
+
+  await checkoutPage.fillCheckoutInformation(
+    'Ryan',
+    'Nobrega',
+    '58000'
+  );
+
+  await checkoutPage.continueCheckout();
+
+  await checkoutPage.finishCheckout();
+
+  await expect(
+    checkoutPage.successMessage
+  ).toContainText('Thank you for your order!');
+
+});
